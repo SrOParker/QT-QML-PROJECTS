@@ -14,7 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
     resize(800,600);
     setMinimumSize(800,600);
     setMaximumSize(800,600);
+
 }
+
 
 MainWindow::~MainWindow()
 {

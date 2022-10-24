@@ -16,7 +16,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
 private slots:
     void on_pushButtonToLeft_clicked();
 
