@@ -46,9 +46,7 @@ void MainWindow::on_pushButtonClear_clicked()
     //    delete textos[i];
     //    textos.pop_back();
     //}
-    //for (int i = 0; i<selected.size();i++){
-    //    textos[selected[i]]->setText("");
-    //}
+
     //for (int i = 0; i<textos.size();i++){
     //    if (textos[i]->text()==""){
     //        for (int j=i;j<textos.size();j++){
@@ -62,7 +60,12 @@ void MainWindow::on_pushButtonClear_clicked()
     //        }
     //    }
     //}
-    //selected.clear();
+    qDebug()<<"selected size: "<<selected.size() << "\n";
+    for(int i {}; i<selected.size();i++){
+        delete textos[selected[i]];
+    }
+    selected.clear();
+
 }
 
 
@@ -104,6 +107,8 @@ void MainWindow::on_linkHovered(int pos)
         selected.append(pos);
         textos[pos]->setStyleSheet("QLabel{ background: red;}");
     }
+
+    //print selected vector
     for (int i=0;i<selected.size();i++){
         qDebug()<< selected[i] << " ";
     }qDebug()<<"\n Size:"<<selected.size() <<"\n";
