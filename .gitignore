@@ -4,3 +4,6 @@ SignalYSlots/SignalYSlots.pro.user
 
 Calendario/Calendario.pro.user
 EjercicioTextoALAIzq/EjercicioTextoALAIzq.pro.user
+
+#builds 
+build-SignalsYSlots-Desktop_Qt_6_4_0_MinGW_64_bit-Debug

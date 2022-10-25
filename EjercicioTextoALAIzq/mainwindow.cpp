@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     setMinimumSize(800,600);
     setMaximumSize(800,600);
 
+    setMouseTracking(true);
 }
 
 
@@ -34,15 +35,34 @@ void MainWindow::on_pushButtonToLeft_clicked()
     textos[textos.size()-1]->adjustSize();
     textos[textos.size()-1]->move(3, (textos.size()-1)*textos[textos.size()-1]->height());
     textos[textos.size()-1]->show();
+
+
 }
 
 
 void MainWindow::on_pushButtonClear_clicked()
 {
-    for (int i = textos.size()-1; i>=0;i--){
-        delete textos[i];
-        textos.pop_back();
-    }
+    //for (int i = textos.size()-1; i>=0;i--){
+    //    delete textos[i];
+    //    textos.pop_back();
+    //}
+    //for (int i = 0; i<selected.size();i++){
+    //    textos[selected[i]]->setText("");
+    //}
+    //for (int i = 0; i<textos.size();i++){
+    //    if (textos[i]->text()==""){
+    //        for (int j=i;j<textos.size();j++){
+    //            if (textos[j]->text()!=""){
+    //                textos[i] = textos[j];
+    //                textos[j]->setText("");
+    //            }
+    //        }
+    //        if (i==textos.size()-1 && textos[i]->text()==""){
+    //            textos[i]->setText("");
+    //        }
+    //    }
+    //}
+    //selected.clear();
 }
 
 
@@ -58,5 +78,45 @@ void MainWindow::on_pushButtonSave_clicked()
     manejadorArchivos.close();
 
     ui->statusbar->showMessage("Texto guardado", 2000);
+}
+
+
+void MainWindow::on_linkHovered(int pos)
+{
+    int count=0;
+    for (int i=0;i<selected.size();i++) {
+        if (selected[i] == pos){
+            if (selected.size()>=1){
+                selected[i] = selected[selected.size()-1];
+                selected.pop_back();
+                textos[pos]->setStyleSheet("QLabel {background:none;}");
+
+                count++;
+            }else{
+                selected.pop_back();
+                textos[i]->setStyleSheet("QLabel {background:none;}");
+                count++;
+            }
+
+        }
+    }
+    if (count==0){
+        selected.append(pos);
+        textos[pos]->setStyleSheet("QLabel{ background: red;}");
+    }
+    for (int i=0;i<selected.size();i++){
+        qDebug()<< selected[i] << " ";
+    }qDebug()<<"\n Size:"<<selected.size() <<"\n";
+
+
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *e)
+{
+    for (int i{}; i<textos.size();++i){
+        if (textos[i]->underMouse()){
+            emit on_linkHovered(i);
+        }
+    }
 }
 

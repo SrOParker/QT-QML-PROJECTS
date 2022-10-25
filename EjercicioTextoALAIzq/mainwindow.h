@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QFile>
 #include <QLabel>
+#include <QMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void mouseReleaseEvent(QMouseEvent *e);
 private slots:
     void on_pushButtonToLeft_clicked();
 
@@ -23,9 +25,16 @@ private slots:
 
     void on_pushButtonSave_clicked();
 
+    void on_linkHovered(int pos);
+
+
 private:
     Ui::MainWindow *ui;
     QString textInDrc;
     QVector<QLabel*> textos;
+    QVector<int> selected;
+
+signals:
+    void hovered_label();
 };
 #endif // MAINWINDOW_H
