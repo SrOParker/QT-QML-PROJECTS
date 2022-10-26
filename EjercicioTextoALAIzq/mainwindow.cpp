@@ -42,27 +42,10 @@ void MainWindow::on_pushButtonToLeft_clicked()
 
 void MainWindow::on_pushButtonClear_clicked()
 {
-    //for (int i = textos.size()-1; i>=0;i--){
-    //    delete textos[i];
-    //    textos.pop_back();
-    //}
-
-    //for (int i = 0; i<textos.size();i++){
-    //    if (textos[i]->text()==""){
-    //        for (int j=i;j<textos.size();j++){
-    //            if (textos[j]->text()!=""){
-    //                textos[i] = textos[j];
-    //                textos[j]->setText("");
-    //            }
-    //        }
-    //        if (i==textos.size()-1 && textos[i]->text()==""){
-    //            textos[i]->setText("");
-    //        }
-    //    }
-    //}
     qDebug()<<"selected size: "<<selected.size() << "\n";
     for(int i {}; i<selected.size();i++){
         delete textos[selected[i]];
+
     }
     selected.clear();
 
@@ -120,7 +103,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *e)
 {
     for (int i{}; i<textos.size();++i){
         if (textos[i]->underMouse()){
-            emit on_linkHovered(i);
+            on_linkHovered(i);
         }
     }
 }
