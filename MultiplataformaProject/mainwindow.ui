@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>200</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,14 +17,37 @@
    <widget class="QLabel" name="datosSistemaLabel">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>90</y>
-      <width>63</width>
-      <height>20</height>
+      <x>21</x>
+      <y>21</y>
+      <width>28</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
      <string>Label</string>
+    </property>
+   </widget>
+   <widget class="Graficador" name="widgetGrafico" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>800</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QDial" name="dialWidget">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>20</y>
+      <width>121</width>
+      <height>101</height>
+     </rect>
     </property>
    </widget>
   </widget>
@@ -33,13 +56,21 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>25</height>
+     <width>1000</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Graficador</class>
+   <extends>QWidget</extends>
+   <header>graficador.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

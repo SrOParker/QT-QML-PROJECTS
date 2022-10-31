@@ -9,34 +9,13 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    graficador.cpp \
     main.cpp \
     mainwindow.cpp \
-    systeminfo.cpp \
     thread.cpp
 
-
 HEADERS += \
-    graficador.h \
     mainwindow.h \
-    systeminfo.h \
     thread.h
-
-windows{
-    SOURCES += \
-        systeminfowindows.cpp
-    HEADERS +=\
-        systeminfowindows.h
-}
-
-linux{
-    SOURCES += \
-        systeminfolinux.cpp
-
-
-    HEADERS += \
-        systeminfolinux.h
-}
 
 FORMS += \
     mainwindow.ui

@@ -2,9 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtGlobal>
-#include <QTimer>
-
 #include "thread.h"
 
 QT_BEGIN_NAMESPACE
@@ -19,11 +16,21 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_pushButtonA_clicked();
+
+    void on_pushButtonB_clicked();
+
+    void on_pushButtonSalir_clicked();
+
+    void updateLabelA(const QString& newText );
+
+    void updateLabelB(const QString& newText );
+
 private:
     Ui::MainWindow *ui;
-    Thread hilo;
-private slots:
-    void actualizarLabel(double dato);
-    void on_dialWidget_valueChanged(int value);
+
+    Thread threadA;
+    Thread threadB;
 };
 #endif // MAINWINDOW_H
