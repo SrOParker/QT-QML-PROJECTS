@@ -28,6 +28,8 @@ private slots:
     void on_linkHovered(int pos);
 
 
+    void on_pushButtonESelected_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString textInDrc;

@@ -2,6 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QResizeEvent>
+#include <QFileDialog>
+#include <QScrollArea>
+#include <QMap>
+#include <QMapIterator>
+#include <QtPrintSupport/QPrinter>
 #include "listacampos.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,9 +23,17 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    ListaCampos main_list_;
-    //**
-private slots:
-    void resizeEvent(QResizeEvent *event);
+
+    ListaCampos *campos;
+
+    QVector<QVector<int>> indicesCampos;
+
+    QStringList partesPlantilla;
+
+protected:
+    void resizeEvent(QResizeEvent* event);
+public slots:
+    void abrirPlantilla();
+    void generarPdf();
 };
 #endif // MAINWINDOW_H

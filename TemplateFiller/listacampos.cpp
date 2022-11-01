@@ -1,26 +1,54 @@
 #include "listacampos.h"
 
-ListaCampos::ListaCampos()
+ListaCampos::ListaCampos(QWidget *parent)
 {
     layout_ = new QVBoxLayout(this);
 }
 
-void ListaCampos::addCampos(Campo *c)
+ListaCampos::~ListaCampos()
 {
-
-
-    layout_->addWidget(c);
-    list_.push_back(c);
-
-
+    for (int i{}; i<list_.size();i++){
+        delete list_[i];
+    }delete layout_;
 }
 
-QVector<Campo*> &ListaCampos::getList()
+void ListaCampos::addCampos(QString label)
 {
-    return list_;
+    list_.append(new Campo(this));
+    list_[list_.size() - 1]->setLabelText(label);
+    layout_->addWidget(list_[list_.size()-1]);
 }
 
-QVBoxLayout *ListaCampos::getLayout()
+int ListaCampos::cantCampos()
 {
-    return layout_;
+    return list_.size();
+}
+
+QString ListaCampos::labelAt(int i)
+{
+    QString dev="";
+    if (i < list_.size() && i>=0){
+        dev = list_[i]->getLabelText();
+    }
+    return dev;
+}
+
+QString ListaCampos::textAt(int i)
+{
+    QString dev="";
+    if (i < list_.size() && i>=0){
+        dev = list_[i]->getLineEditText();
+    }
+    return dev;
+}
+
+int ListaCampos::encontrar(QString label)
+{
+    int indice = -1;
+    for (int i {}; i<list_.size();++i){
+        if (list_[i]->getLabelText() == label){
+            indice = i;
+        }
+    }
+    return indice;
 }

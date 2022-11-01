@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     setMaximumSize(800,600);
 
     setMouseTracking(true);
+    ui->pushButtonESelected->setEnabled(false);
 }
 
 
@@ -23,7 +24,6 @@ MainWindow::~MainWindow()
 {
     for (int i = textos.size()-1; i>=0;i--){
         delete textos[i];
-        textos.pop_back();
     }
     delete ui;
 }
@@ -42,12 +42,12 @@ void MainWindow::on_pushButtonToLeft_clicked()
 
 void MainWindow::on_pushButtonClear_clicked()
 {
-    qDebug()<<"selected size: "<<selected.size() << "\n";
-    for(int i {}; i<selected.size();i++){
-        delete textos[selected[i]];
+
+    for(int i {}; i<textos.size();i++){
+        delete textos[i];
 
     }
-    selected.clear();
+    textos.clear();
 
 }
 
@@ -69,33 +69,17 @@ void MainWindow::on_pushButtonSave_clicked()
 
 void MainWindow::on_linkHovered(int pos)
 {
-    int count=0;
-    for (int i=0;i<selected.size();i++) {
-        if (selected[i] == pos){
-            if (selected.size()>=1){
-                selected[i] = selected[selected.size()-1];
-                selected.pop_back();
-                textos[pos]->setStyleSheet("QLabel {background:none;}");
-
-                count++;
-            }else{
-                selected.pop_back();
-                textos[i]->setStyleSheet("QLabel {background:none;}");
-                count++;
-            }
-
+    if(selected.contains(pos)){
+        textos[pos]->setStyleSheet("QLabel { background-color:none; }");
+        selected.remove(selected.indexOf(pos));
+        if (selected.isEmpty()){
+            ui->pushButtonESelected->setEnabled(false);
         }
-    }
-    if (count==0){
+    }else{
+        textos[pos]->setStyleSheet("QLabel { background-color: green; }");
         selected.append(pos);
-        textos[pos]->setStyleSheet("QLabel{ background: red;}");
+        ui->pushButtonESelected->setEnabled(true);
     }
-
-    //print selected vector
-    for (int i=0;i<selected.size();i++){
-        qDebug()<< selected[i] << " ";
-    }qDebug()<<"\n Size:"<<selected.size() <<"\n";
-
 
 }
 
@@ -107,4 +91,38 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *e)
         }
     }
 }
+
+
+void MainWindow::on_pushButtonESelected_clicked()
+{
+    for(int i{}; i < selected.size() ; i++){
+        for(int j{}; j < (selected.size()-1); j++){
+            if (selected[j] > selected[j+1]){
+                int aux = selected[j];
+                selected[j] = selected [j+1];
+                selected[j+1] = aux;
+            }
+        }
+    }
+
+    int cantidadBorrados=0;
+    for (int i=0;i<selected.size();i++){
+        delete textos[selected[i]-cantidadBorrados];
+        textos.remove(selected[i]-cantidadBorrados);
+        cantidadBorrados++;
+    }
+    for (int i=0;i<textos.size();i++){
+        textos[i]->move(0, i*textos[i]->height());
+    }
+
+    selected.clear();
+}
+
+
+
+
+
+
+
+
 

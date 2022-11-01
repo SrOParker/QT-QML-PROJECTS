@@ -56,7 +56,7 @@
    <widget class="QPushButton" name="pushButtonClear">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>540</x>
       <y>550</y>
       <width>80</width>
       <height>24</height>
@@ -69,7 +69,7 @@
    <widget class="QPushButton" name="pushButtonSave">
     <property name="geometry">
      <rect>
-      <x>700</x>
+      <x>620</x>
       <y>550</y>
       <width>80</width>
       <height>24</height>
@@ -100,6 +100,19 @@
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonESelected">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>550</y>
+      <width>81</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Erase Selected</string>
     </property>
    </widget>
   </widget>
