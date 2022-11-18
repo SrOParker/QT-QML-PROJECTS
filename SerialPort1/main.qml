@@ -26,15 +26,30 @@ ApplicationWindow {
                         id:delegate
                         width: parent.width
                         height: 20
+                        CheckBox{
+                            id : checkBox
+                            x:0
+                            anchors.verticalCenter: parent.verticalCenter;
+                        }
                         Text{
                             id:nombrePuerto
                             text:modelData
+                            anchors.left: checkBox.right
                         }
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
                                 comunicator.portName ="COM1";
                                 comunicator.openPort();
+                                checkBox.toggle();
+                            }
+                            //hover
+                            hoverEnabled: true;
+                            onEntered: {
+                                delegate.color = "blue";
+                            }
+                            onExited: {
+                                delegate.color = "white"
                             }
                         }
                     }
