@@ -1,7 +1,5 @@
 #include "templatemanager.h"
 
-#include <QDebug>
-
 TemplateManager::TemplateManager(QObject *parent)
     : QObject{parent}
 {
@@ -66,6 +64,45 @@ void TemplateManager::openTemplate(QString path)
             //ui->statusbar->showMessage("Plantilla no especificada.", 3000);
             qDebug() << ("NO SE LEE");
         }
+}
+
+void TemplateManager::exportarAPdf()
+{
+    for (int campo = 0; campo < indicesCampos.size(); campo++) {
+        for (int indice = 0; indice < indicesCampos[campo].size(); indice++) {
+            partesPlantilla[ indicesCampos[campo][indice] ] = campos[campo];
+        }
+    }
+
+    partesPlantilla.replaceInStrings("\n", "<br>");
+    partesPlantilla.replaceInStrings("\r", "<br>");
+
+    QString html = "";
+
+    for (int i = 0; i < partesPlantilla.size(); i++) {
+        html += partesPlantilla[i];
+    }
+
+    QTextDocument documento;
+
+    //QPrinter impresora(QPrinter::HighResolution);
+    //impresora.setColorMode(QPrinter::Color);
+    //impresora.setOutputFormat(QPrinter::PdfFormat);
+    //impresora.setOutputFileName( "archivo.pdf" );
+    //impresora.setPageMargins(QMargins(10, 20, 10, 15));
+
+    //if (impresora.outputFileName().endsWith(".pdf")) {
+    //    documento.setHtml(html);
+
+    //    documento.print(&impresora);
+
+
+    //    //ui->statusbar->showMessage("Archivo exportado correctamente.", 3000);
+    //}
+
+    //else {
+    //    //ui->statusbar->showMessage("Nombre de archivo no especificado.", 3000);
+    //}
 }
 
 QVector<QString> TemplateManager::getCampos()

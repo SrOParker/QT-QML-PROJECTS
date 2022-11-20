@@ -3,7 +3,9 @@
 
 #include <QObject>
 #include <QFile>
-
+#include <QDebug>
+#include <QTextDocument>
+#include <QtPrintSupport/QPrinter>
 
 class TemplateManager : public QObject
 {
@@ -11,8 +13,11 @@ class TemplateManager : public QObject
 public:
     explicit TemplateManager(QObject *parent = nullptr);
     Q_INVOKABLE void openTemplate(QString path);
+    Q_INVOKABLE void exportarAPdf();
+
     Q_INVOKABLE QVector<QString> getCampos();
     Q_INVOKABLE std::size_t getCamposSize();
+
 
     int encontrar(QString nombre);
     QVector<QVector<int>> indicesCampos;

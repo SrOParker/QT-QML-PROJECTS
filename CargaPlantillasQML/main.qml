@@ -50,7 +50,12 @@ Window {
                 onTriggered: win.openTemplate();
 
             }
-            Action { text: qsTr("&Export as PDF") }
+            Action {
+                id:exportAction
+                text: qsTr("&Export as PDF")
+                enabled: false
+                onTriggered: win.exportPDF();
+            }
             MenuSeparator { }
             Action { text: qsTr("&Quit") }
         }
@@ -71,6 +76,10 @@ Window {
         fileDialog.open();
 
     }
+    function exportPDF(){
+        console.log("Exportar a pdf");
+        fileDialog.exportarAPdf();
+    }
     FileDialog{
         id:fileDialog
         onAccepted: {
@@ -78,7 +87,7 @@ Window {
 
             templatemanager.openTemplate(currentFile);
             listViewCampos.model = templatemanager.getCampos();
-
+            exportAction.enabled = true;
         }
     }
     TemplateManager{
