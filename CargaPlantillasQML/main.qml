@@ -3,6 +3,9 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
+import QtQuick.Dialogs
+
+import template.manager 1.0
 
 Window {
     id: win
@@ -14,10 +17,26 @@ Window {
     Rectangle{
         id: firstContainer
         anchors{
-            fill: parent
+
+            top: menubar.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right:parent.right
             margins: 5
         }
         color: Qt.darker(win.color, 1.2);
+        ListView{
+            id :listViewCampos
+            anchors.centerIn: parent
+            anchors.fill: parent
+            clip: true
+            spacing: 10
+            delegate: Campo{
+                label: modelData
+                color: Qt.darker(firstContainer.color,1.1);
+
+            }
+        }
     }
     MenuBar{
         id: menubar
@@ -45,7 +64,24 @@ Window {
         }
     }
 
+
     function openTemplate(){
         console.log("Abriendo plantilla");
+
+        fileDialog.open();
+
+    }
+    FileDialog{
+        id:fileDialog
+        onAccepted: {
+            console.log(currentFile);
+
+            templatemanager.openTemplate(currentFile);
+            listViewCampos.model = templatemanager.getCampos();
+
+        }
+    }
+    TemplateManager{
+        id: templatemanager
     }
 }
