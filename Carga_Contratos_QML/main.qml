@@ -5,7 +5,6 @@ import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Dialogs
 
-import template.manager 1.0
 
 Window {
     id: win
@@ -47,14 +46,14 @@ Window {
             title: qsTr("&File")
             Action {
                 text: qsTr("&Open Template")
-                onTriggered: win.openTemplate();
+
 
             }
             Action {
                 id:exportAction
                 text: qsTr("&Export as PDF")
                 enabled: false
-                onTriggered: win.exportPDF();
+
             }
             MenuSeparator { }
             Action { text: qsTr("&Quit") }
@@ -64,40 +63,12 @@ Window {
             title: qsTr("&Help")
             Action {
                 text: qsTr("&About")
-                onTriggered: {console.log("help");}
+
             }
         }
     }
 
 
-    function openTemplate(){
-        console.log("Abriendo plantilla");
 
-        fileDialog.open();
-
-    }
-    function exportPDF(){
-        console.log("Exportar a pdf");
-        for (var i = 1 ; i < 18;i++){
-            console.log(listViewCampos.itemAtIndex(i).input);
-            //templatemanager.addCampoRelleno(c);
-        }
-
-        templatemanager.exportarAPdf();
-        //templatemanager.setHTML();
-    }
-    FileDialog{
-        id:fileDialog
-        onAccepted: {
-            console.log(currentFile);
-
-            templatemanager.openTemplate(currentFile);
-            listViewCampos.model = templatemanager.getCampos();
-            exportAction.enabled = true;
-        }
-    }
-    TemplateManager{
-        id: templatemanager
-    }
 
 }

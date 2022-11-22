@@ -16,13 +16,16 @@ public:
     Q_INVOKABLE void exportarAPdf();
 
     Q_INVOKABLE QVector<QString> getCampos();
-    Q_INVOKABLE std::size_t getCamposSize();
-
-
+    Q_INVOKABLE void addCampoRelleno(QString str);
     int encontrar(QString nombre);
+
+
     QVector<QVector<int>> indicesCampos;
     QStringList partesPlantilla;
     QVector<QString> campos;
+    QVector<QString> camposRellenos;
+    QTextDocument document;
+    QString html;
 signals:
 
 };

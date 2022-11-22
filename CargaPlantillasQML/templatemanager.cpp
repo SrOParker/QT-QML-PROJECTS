@@ -70,22 +70,23 @@ void TemplateManager::exportarAPdf()
 {
     for (int campo = 0; campo < indicesCampos.size(); campo++) {
         for (int indice = 0; indice < indicesCampos[campo].size(); indice++) {
-            partesPlantilla[ indicesCampos[campo][indice] ] = campos[campo];
+            partesPlantilla[ indicesCampos[campo][indice] ] = camposRellenos[campo];
+            qDebug() << camposRellenos[campo];
         }
     }
 
     partesPlantilla.replaceInStrings("\n", "<br>");
     partesPlantilla.replaceInStrings("\r", "<br>");
 
-    QString html = "";
+    html = "";
 
     for (int i = 0; i < partesPlantilla.size(); i++) {
         html += partesPlantilla[i];
     }
 
-    QTextDocument documento;
-
-    //QPrinter impresora(QPrinter::HighResolution);
+    //QTextDocument documento;
+    qDebug()<<html;
+    //QPrinter impresora(QPrinter::PrinterMode::HighResolution);
     //impresora.setColorMode(QPrinter::Color);
     //impresora.setOutputFormat(QPrinter::PdfFormat);
     //impresora.setOutputFileName( "archivo.pdf" );
@@ -110,10 +111,12 @@ QVector<QString> TemplateManager::getCampos()
     return campos;
 }
 
-std::size_t TemplateManager::getCamposSize()
+void TemplateManager::addCampoRelleno(QString str)
 {
-    return campos.size();
+    camposRellenos.append(str);
 }
+
+
 
 int TemplateManager::encontrar(QString nombre)
 {
@@ -125,3 +128,4 @@ int TemplateManager::encontrar(QString nombre)
     }
     return indice;
 }
+

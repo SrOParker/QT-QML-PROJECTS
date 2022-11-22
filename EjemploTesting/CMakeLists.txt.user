@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 8.0.2, 2022-11-21T00:31:28. -->
+<!-- Written by QtCreator 8.0.2, 2022-11-21T11:01:08. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -67,7 +67,12 @@
     <value type="bool" key="AutoTest.Framework.QtQuickTest">true</value>
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="AutoTest.CheckStates"/>
+   <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/EjemploTesting/TestQString.cpp:TestQString">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/EjemploTesting/TestQString.cpp:TestString">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/EjemploTesting/TestQString.cpp:textToLower">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/EjemploTesting/TestQString.cpp:textToUpper">Checked</value>
+   </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
    <valuemap type="QVariantMap" key="ClangTools">
@@ -103,7 +108,7 @@
 -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
 -DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-CargaPlantillasQML-Desktop_Qt_6_4_0_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-EjemploTesting-Desktop_Qt_6_4_0_MinGW_64_bit-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -150,7 +155,7 @@
 -DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
 -DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-CargaPlantillasQML-Desktop_Qt_6_4_0_MinGW_64_bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-EjemploTesting-Desktop_Qt_6_4_0_MinGW_64_bit-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -195,7 +200,7 @@
 -DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
 -DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-CargaPlantillasQML-Desktop_Qt_6_4_0_MinGW_64_bit-RelWithDebInfo</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-EjemploTesting-Desktop_Qt_6_4_0_MinGW_64_bit-RelWithDebInfo</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -241,7 +246,7 @@
 -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
 -DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-CargaPlantillasQML-Desktop_Qt_6_4_0_MinGW_64_bit-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-EjemploTesting-Desktop_Qt_6_4_0_MinGW_64_bit-Profile</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -286,7 +291,7 @@
 -DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
 -DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-CargaPlantillasQML-Desktop_Qt_6_4_0_MinGW_64_bit-MinSizeRel</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\iamsr\OneDrive\Documentos\Workspaces\QT-GIT\QT-QML-PROJECTS\build-EjemploTesting-Desktop_Qt_6_4_0_MinGW_64_bit-MinSizeRel</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
@@ -342,15 +347,15 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">CargaPlantillasQML</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.CargaPlantillasQML</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">CargaPlantillasQML</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">EjemploTesting</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.EjemploTesting</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">EjemploTesting</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/build-CargaPlantillasQML-Desktop_Qt_6_4_0_MinGW_64_bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/build-EjemploTesting-Desktop_Qt_6_4_0_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
