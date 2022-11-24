@@ -12,12 +12,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick PrintSupport)
 
 set(PROJECT_SOURCES
         main.cpp
         qml.qrc
         templatehandler.h templatehandler.cpp
+        templatehandlerinterface.h templatehandlerinterface.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -44,7 +45,7 @@ else()
 endif()
 
 target_link_libraries(Carga_Contratos_QML
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
+  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::PrintSupport)
 
 set_target_properties(Carga_Contratos_QML PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

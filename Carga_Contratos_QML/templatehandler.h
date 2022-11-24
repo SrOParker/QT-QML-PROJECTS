@@ -1,11 +1,13 @@
 #ifndef TEMPLATEHANDLER_H
 #define TEMPLATEHANDLER_H
 
+
 #include <QString>
 #include <QFile>
 #include <QMap>
-
-
+#include <QTextStream>
+#include <QTextDocument>
+#include <QtPrintSupport/QPrinter>
 class TemplateHandler
 {
 public:
@@ -21,7 +23,11 @@ public:
     void        completarCampo(const QString &campo, const QString &contenido);
 
     //
-    bool        guardar(const QString &file);
+    bool        guardarTXT(const QString &file);
+    void        guardarPDF(const QString &file);
+
+    QString     getCampo(const QString key);
+    int         cantidadCampos();
 private:
 
 

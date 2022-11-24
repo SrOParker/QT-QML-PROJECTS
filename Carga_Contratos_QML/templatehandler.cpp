@@ -38,11 +38,56 @@ QStringList TemplateHandler::obtenerCampos()
 
 void TemplateHandler::completarCampo(const QString &campo, const QString &contenido)
 {
+    if (tagsCampos.contains(campo)){
         campos[campo] = contenido;
+    }
 }
 
-bool TemplateHandler::guardar(const QString &file)
+void TemplateHandler::guardarPDF(const QString &file)
 {
+    for(int i = 1; i < partesPlantilla.size(); i+=2){
+        partesPlantilla[i] = campos[partesPlantilla[i]];
+    }
 
+    QString html = partesPlantilla.join("");
+    html.replace("\r", "<br>");
+    html.replace("\n", "<br>");
+
+    QTextDocument documento;
+    documento.setHtml(html);
+
+    QPrinter impresora(QPrinter::HighResolution);
+    impresora.setOutputFormat(QPrinter::PdfFormat);
+    impresora.setOutputFileName(file);
+    impresora.setPageMargins(QMargins(10,20,10,15));
+
+    documento.print(&impresora);
+    documento.isEmpty();
 }
 
+QString TemplateHandler::getCampo(const QString key)
+{
+    return campos[key];
+}
+
+int TemplateHandler::cantidadCampos()
+{
+    return campos.size();
+}
+
+bool TemplateHandler::guardarTXT(const QString &file)
+{
+    for(int i = 1; i < partesPlantilla.size(); i+=2){
+        partesPlantilla[i] = campos[partesPlantilla[i]];
+    }
+    //Archivo de texto
+    QFile archivo(file);
+    if (archivo.open(QIODevice::WriteOnly | QIODevice::Text)){
+        QTextStream textoArchivo(&archivo);
+        textoArchivo << partesPlantilla.join("");
+        //join("") de QStringList une todos los strings de la lista en un solo string
+
+        archivo.close();
+        return true;
+    }else return false;
+}

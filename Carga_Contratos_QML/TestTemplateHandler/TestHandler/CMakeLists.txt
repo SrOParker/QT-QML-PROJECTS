@@ -15,7 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Test)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Test printsupport)
 
 add_executable(TestHandler
   TestTemplateHandler.cpp
@@ -25,7 +25,7 @@ add_executable(TestHandler
 
 add_test(NAME TestHandler COMMAND TestHandler)
 
-target_link_libraries(TestHandler Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Test)
+target_link_libraries(TestHandler Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Test Qt${QT_VERSION_MAJOR}::PrintSupport)
 
 #install(TARGETS TestHandler
 #    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})

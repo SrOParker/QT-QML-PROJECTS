@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 8.0.2, 2022-11-21T14:32:27. -->
+<!-- Written by QtCreator 8.0.2, 2022-11-24T00:50:52. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -71,10 +71,14 @@
     <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:TestTemplateHandler">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:archivo1">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:archivo2">Checked</value>
-    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:cleanupTestCase">Unchecked</value>
-    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:initTestCase">Unchecked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:archivo3">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:archivo4">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:cleanupTestCase">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:initTestCase">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:test_completarCampo">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:test_completarCampo_data">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:test_obtenerCampos">Checked</value>
-    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:test_obtenerCampos_data">Unchecked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/iamsr/OneDrive/Documentos/Workspaces/QT-GIT/QT-QML-PROJECTS/Carga_Contratos_QML/TestTemplateHandler/TestHandler/TestTemplateHandler.cpp:test_obtenerCampos_data">Checked</value>
    </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>

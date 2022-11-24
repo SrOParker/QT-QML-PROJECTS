@@ -5,6 +5,8 @@ import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Dialogs
 
+import Templatehandler.Interface 1.0
+
 
 Window {
     id: win
@@ -46,13 +48,25 @@ Window {
             title: qsTr("&File")
             Action {
                 text: qsTr("&Open Template")
-
+                onTriggered: {
+                    dialog.open();
+                }
 
             }
             Action {
                 id:exportAction
                 text: qsTr("&Export as PDF")
                 enabled: false
+                onTriggered: {
+
+                   for (var i= 0 ; i < classHandler.cantidadCampos(); i++){
+                       classHandler.completarCampo(listViewCampos.model[i], listViewCampos.contentItem.children[i].input);
+                       //console.log(listViewCampos.model[i]);
+                       //console.log(listViewCampos.contentItem.children[i].input);
+                   }
+
+                   classHandler.guardarPDF("Nuevo.pdf");
+                }
 
             }
             MenuSeparator { }
@@ -67,7 +81,23 @@ Window {
             }
         }
     }
+    FileDialog{
+        id: dialog
 
+        onAccepted:{
+            var url = dialog.selectedFile.toString();
+            url = url.replace(/^(file:\/{3})|(qrc:\/{2})|(http:\/{2})/,"");
+            var cleanUrl = decodeURIComponent(url);
+            classHandler.cargarTemplate(cleanUrl);
+
+            listViewCampos.model = classHandler.obtenerCampos();
+            exportAction.enabled = true;
+        }
+    }
+
+    TemplateHandlerClass{
+        id:classHandler
+    }
 
 
 
