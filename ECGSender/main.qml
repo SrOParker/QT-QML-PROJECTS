@@ -6,7 +6,7 @@ import ArchiveManager.Interface 1.0
 
 Window {
     width: 640
-    height:100
+    height: 480
     visible: true
     title: qsTr("Interface ECG SERIAL PORT")
 
@@ -17,24 +17,19 @@ Window {
         onClicked: {
             manager.resetPositionRec();
             manager.readFromTXT("ECG.txt");
-            manager.startSerialCom("ECG.txt", "COM3", 500, 115200);
-            //timer.start()
+            manager.startSerialCom("ECG.txt", "COM1", 500, 9600);
+            timer.start()
         }
     }
 
     ArchiveManager{
         id: manager
-        onStarted: {
-            timer.start();
-        }
-        onStopped: {
-            timer.stop();
-        }
+
     }
 
     Timer{
         id:timer
-        interval:20
+        interval:10
         repeat: true
         onTriggered: {
             tiempo.tiempoTranscurrido += 0.1;

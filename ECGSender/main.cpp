@@ -1,7 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "archivemanagerreceiverinterface.h"
+#include "archivemanagerinterface.h"
+
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -16,15 +17,18 @@ int main(int argc, char *argv[])
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
-    qmlRegisterType<ArchiveManagerReceiverInterface>("archivemanager.receiver.interface",1,0,"ReceiverData");
-    ArchiveManagerReceiver archive;
+    qmlRegisterType<ArchiveManagerInterface>("ArchiveManager.Interface",1,0,"ArchiveManager");
+    //ArchiveManager archive;
 
     //archive.readFromTXT("ECG.txt");
-    archive.startSerialCom("COM3",  QSerialPort::Baud115200);
-    archive.startTimer(20);
+    //archive.startSerialCom("ECS.txt", "COM1", 500, QSerialPort::Baud9600);
 
-
+    //archive.readFromTXT("ECG.txt");
+    //archive.startTimer(2);
     engine.load(url);
 
     return app.exec();
 }
+
+
+//main -> start -> ECG.txt, COM1, 500, QSerialPort::Baud9600

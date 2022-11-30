@@ -15,21 +15,17 @@ void ArchiveManager::readFromTXT(const QString &file)
         //Leemos el texto entero
         line = archivo.readLine();
         while (line != ""){
-            //qDebug() << "Line: "<<  line;
-            addToData(line.toFloat(), line);
+            addToData(line.toDouble(), line);
 
             line = archivo.readLine();
-
         }
         archivo.close();
-    }else {
-        qDebug() << "No abre";
     }
 }
 
-float ArchiveManager::getOneInData(int position)
+double ArchiveManager::getOneInData(int position)
 {
-    float ret = 0;
+    double ret = 0;
     if (position< data.size() && position >= 0){
         ret = data[position];
     }
@@ -45,12 +41,12 @@ QString ArchiveManager::getOneInDataS(int position)
     return ret;
 }
 
-QVector<float> ArchiveManager::getAllData()
+QVector<double> ArchiveManager::getAllData()
 {
     return data;
 }
 
-void ArchiveManager::addToData(float d, QString str)
+void ArchiveManager::addToData(double d, QString str)
 {
     data.append(d);
     dataString.append(str);
@@ -84,7 +80,6 @@ void ArchiveManager::stopSerialCom()
     port.errorString();
     port.close();
     resetPositionRec();
-    timer.stop();
 }
 
 void ArchiveManager::resetPositionRec()
@@ -94,19 +89,17 @@ void ArchiveManager::resetPositionRec()
 
 void ArchiveManager::sendValue()
 {
-    float d = 0;
+    double d = 0;
     if (position < 4988){
         d = getOneInData(position);
-
+        //qDebug() << d;
 
         if (port.isOpen()){
-            //port.write(d.toLatin1());
-            //qDebug() << d;
+            port.write(QByteArray::number(d));
 
-            port.write((char*)&d, sizeof(d));
+            //port.write((char*)&d, sizeof(d));
         }else{
             stopSerialCom();
-            qDebug()<< "Port closed";
             emit portError();
         }
 

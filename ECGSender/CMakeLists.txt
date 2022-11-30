@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(ECGSerialReceiver VERSION 0.1 LANGUAGES CXX)
+project(ECGSender VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -17,37 +17,37 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick SerialPort)
 set(PROJECT_SOURCES
         main.cpp
         qml.qrc
-        archivemanagerreceiver.h archivemanagerreceiver.cpp
-        archivemanagerreceiverinterface.h archivemanagerreceiverinterface.cpp
+        archivemanager.h archivemanager.cpp
+        archivemanagerinterface.h archivemanagerinterface.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(ECGSerialReceiver
+    qt_add_executable(ECGSender
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET ECGSerialReceiver APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET ECGSender APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(ECGSerialReceiver SHARED
+        add_library(ECGSender SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(ECGSerialReceiver
+        add_executable(ECGSender
           ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(ECGSerialReceiver
+target_link_libraries(ECGSender
   PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::SerialPort)
 
-set_target_properties(ECGSerialReceiver PROPERTIES
+set_target_properties(ECGSender PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -55,11 +55,11 @@ set_target_properties(ECGSerialReceiver PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-install(TARGETS ECGSerialReceiver
+install(TARGETS ECGSender
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_import_qml_plugins(ECGSerialReceiver)
-    qt_finalize_executable(ECGSerialReceiver)
+    qt_import_qml_plugins(ECGSender)
+    qt_finalize_executable(ECGSender)
 endif()

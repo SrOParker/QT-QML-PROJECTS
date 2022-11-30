@@ -1,7 +1,7 @@
 #include "archivemanagerinterface.h"
 
 ArchiveManagerInterface::ArchiveManagerInterface(QObject *parent)
-    : ArchiveManager{parent}
+    : QObject{parent}
 {
 
 }
@@ -9,6 +9,21 @@ ArchiveManagerInterface::ArchiveManagerInterface(QObject *parent)
 void ArchiveManagerInterface::readFromTXT(const QString &file)
 {
     man.readFromTXT(file);
+}
+
+double ArchiveManagerInterface::getOneInData(int position)
+{
+    return man.getOneInData(position);
+}
+
+QVector<double> ArchiveManagerInterface::getAllData()
+{
+    return man.getAllData();
+}
+
+void ArchiveManagerInterface::startTimer(int n)
+{
+    man.startTimer(n);
 }
 
 void ArchiveManagerInterface::startSerialCom(const QString &file, const QString &port, float timerVel, QSerialPort::BaudRate baud)

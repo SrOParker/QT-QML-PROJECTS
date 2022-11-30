@@ -13,27 +13,24 @@ public:
     explicit ArchiveManager(QObject *parent = nullptr);
 
     void readFromTXT(const QString &file);
-    float getOneInData(int position);
+    double getOneInData(int position);
     QString getOneInDataS(int position);
-    QVector<float> getAllData();
+    QVector<double> getAllData();
     void startTimer(int n);
 
-
+    void startSerialCom(const QString &file, const QString &port, float timerVel, QSerialPort::BaudRate baud);
+    void stopSerialCom();
     void resetPositionRec();
 protected:
-    void addToData(float d, QString str);
+    void addToData(double d, QString str);
 
-    QVector<float> data;
+    QVector<double> data;
     QVector<QString> dataString;
     QTimer timer;
     int position;
     QSerialPort port;
-public slots:
-    void startSerialCom(const QString &file, const QString &port, float timerVel, QSerialPort::BaudRate baud);
-    void stopSerialCom();
 signals:
     void started();
-    void stopped();
     void portError();
 protected slots:
     void sendValue();
