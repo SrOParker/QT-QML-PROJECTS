@@ -1,0 +1,27 @@
+glOrtho
+glFrustum
+
+glScalef     --> al girar la rueda
+glRotatef    --> al draggear (click izq mantengo y arrastro)
+glTranslatef --> draggear con la rueda clickada (mantengo y arrastro)
+
+update()
+
+glLoadIdentity
+
+glBegin
+    glVertex3f
+glEnd
+glFlush
+
+
+
+Hito 1 
+    Piramide dibujada y visible en la pantalla                                  CONSEGUIDO
+Hito 2
+    lograr la transformación de rotacion con click izq                          CONSEGUIDO    
+Hito 3
+    lograr la transformación de translacion con click rueda                     CONSEGUIDO
+Hito 4
+    lograr la transformación de escalado con ruedita                            NO LOGRADO
+
