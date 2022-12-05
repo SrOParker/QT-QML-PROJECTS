@@ -10,7 +10,9 @@ Graphics::Graphics(QWidget *parent) : QOpenGLWidget(parent)
     xeje=yeje=zeje=0;
     xmove=ymove=zmove=0;
     xwheeldrag=ywheeldrag=false;
+    graphicZoom = 1;
     wheelPressed = false;
+    scaleTrue = false;
 }
 
 void Graphics::initializeGL()
@@ -70,6 +72,9 @@ void Graphics::paintGL()
         glTranslatef(0,0,zmove*0.1);
     }
 
+    if (scaleTrue){
+        glScalef(graphicZoom,graphicZoom,graphicZoom);
+    }
 
 
     //CARA CUADRADA ABAJO
@@ -204,6 +209,21 @@ void Graphics::mouseMoveEvent(QMouseEvent *event)
 
 void Graphics::wheelEvent(QWheelEvent *event)
 {
+    scaleTrue = false;
+    if (!event->angleDelta().isNull()){
+        if (event->angleDelta().y() > 0){
+            //INCREMENTO DE ZOOM
+            graphicZoom +=0.1;
+            scaleTrue = true;
+
+        }else{
+            //DECREMENTO DE ZOOM
+            graphicZoom -=0.1;
+            scaleTrue = true;
+
+        }
+        update();
+    }
 
 }
 

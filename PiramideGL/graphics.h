@@ -25,6 +25,9 @@ private:
     int xmove, ymove, zmove;
     bool xwheeldrag, ywheeldrag;
 
+
+    float graphicZoom;
+    bool scaleTrue;
     float xmouse, ymouse;
     // QOpenGLWidget interface
 protected:
