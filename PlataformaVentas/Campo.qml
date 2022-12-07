@@ -8,6 +8,11 @@ Item {
     property bool  clickeable: true
     property alias echoMode : inputTe.echoMode
 
+
+    property alias inputItem: inputTe
+    property var nextTab: inputTe
+    property var prevTab: inputTe
+
     height: campo1.height
     Rectangle{
         id:campo1
@@ -44,6 +49,8 @@ Item {
                 anchors.leftMargin: 5
                 font.pixelSize: 20
                 clip: true
+                KeyNavigation.tab: nextTab
+                KeyNavigation.backtab: prevTab
                 //passwordCharacter: "·"
                 //anchors.top: nombreLabel.bottom
                 MouseArea{

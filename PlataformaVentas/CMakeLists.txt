@@ -43,7 +43,7 @@ else()
 endif()
 
 target_link_libraries(PlataformaVentas
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
+  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick )
 
 set_target_properties(PlataformaVentas PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
