@@ -5,7 +5,7 @@ Manejador::Manejador()
     readVariable =0;
     connect(&port, SIGNAL(readyRead()), this, SLOT(readData()));
     currentSignal = "NONE";
-    firstTime = true;
+
 }
 
 QSerialPort &Manejador::getPort()
@@ -23,6 +23,25 @@ QVector<QByteArray> Manejador::getSignals()
     return signalsReceived;
 }
 
+void Manejador::initPort(QString name)
+{
+    port.setPortName(name);
+    port.setBaudRate(QSerialPort::Baud115200);
+    if (port.open(QIODeviceBase::ReadWrite)) {
+        qDebug() << ("Puerto abierto exitosamente");
+    }
+    else {
+        qDebug() << ("Error al abrir puerto");
+    }
+
+    port.write("AT+SIGNALS=?");
+}
+
+void Manejador::writeText(QString text)
+{
+    port.write(text.toLatin1());
+}
+
 void Manejador::createSignals(QByteArray message)
 {
     QVector<QByteArray> signalsCreated;
@@ -31,7 +50,9 @@ void Manejador::createSignals(QByteArray message)
     for (int i=0; i < signalsCreated.size();i++){
         signalsReceived.append(signalsCreated[i].split('\r')[0]);
     } signalsReceived.pop_front();
-
+    //for(int i=0; i < signalsReceived.size();i++){
+    //    qDebug()<< signalsReceived[i];
+    //}
 }
 
 void Manejador::readData(){
@@ -65,8 +86,11 @@ void Manejador::readData(){
         while (port.bytesAvailable()) {
             message.append(port.readLine());
         }
-        qDebug() << message;
-        currentSignal = message.split('+')[1];
+        //qDebug() << message;
+        if(!message.contains('OK')){
+            currentSignal = message.split('+')[1];
+        }
+
         emit currentSignalview();
     }
 

@@ -16,7 +16,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
 private slots:
     void portActionTriggered(QAction* action);
 
@@ -30,6 +29,7 @@ private slots:
     void on_pushButtonCurrent_clicked();
 
     void currentSignalInStatusBar();
+    void paintDataReceived(float dato);
 private:
     Ui::MainWindow *ui;
 
@@ -37,7 +37,7 @@ private:
 
     QVector<ButtonSignal*> signalsButtons;
 
-
+    float xPosActual;
 
 };
 #endif // MAINWINDOW_H

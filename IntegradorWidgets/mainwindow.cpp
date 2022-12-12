@@ -17,15 +17,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButtonSTOP->setVisible(false);
     ui->pushButtonCurrent->setVisible(false);
 
+    xPosActual = 0;
+
     connect(ui->menuPorts, SIGNAL(triggered(QAction*)), this, SLOT(portActionTriggered(QAction*)));
     connect(&manager, SIGNAL(activablesSTARTySTOP()), this, SLOT(activeSTARTandSTOP()));
     connect(&manager, SIGNAL(currentSignalview()), this, SLOT(currentSignalInStatusBar()));
+    connect(&manager, SIGNAL(signalDataEmited(float)), this, SLOT(paintDataReceived(float)));
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 
 void MainWindow::portActionTriggered(QAction *action)
 {
@@ -123,5 +129,12 @@ void MainWindow::currentSignalInStatusBar()
 {
     ui->statusbar->showMessage("LA SEÑAL SELECCIONADA ES "+manager.getCurrentSignal(), 5000);
     manager.readVariable = 0;
+}
+
+void MainWindow::paintDataReceived(float dato)
+{
+    //qDebug() << dato;
+    xPosActual++;
+    ui->widget->passDataAndPaint(xPosActual, dato * 20);
 }
 

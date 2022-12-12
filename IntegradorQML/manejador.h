@@ -13,6 +13,8 @@ public:
     QSerialPort& getPort();
     QString getCurrentSignal();
     QVector<QByteArray> getSignals();
+    void initPort(QString name);
+    void writeText(QString text);
     //PUBLIC VARIABLES
 
     int readVariable;
@@ -26,7 +28,7 @@ private:
     QSerialPort port;
     QString currentSignal;
     QVector<QByteArray> signalsReceived;
-    bool firstTime;
+
 public slots:
     void readData();
 
