@@ -89,6 +89,7 @@ void Manejador::readData(){
         //qDebug() << message;
         if(!message.contains('OK')){
             currentSignal = message.split('+')[1];
+            readVariable =0;
         }
 
         emit currentSignalview();

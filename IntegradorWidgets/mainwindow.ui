@@ -16,6 +16,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background: &quot;#485665&quot;</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="buttonSignals">
     <property name="enabled">
@@ -34,6 +37,10 @@
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:&quot;#8e7c93&quot;;
+color:&quot;white&quot;</string>
+    </property>
     <property name="text">
      <string>Generar Señales</string>
     </property>
@@ -49,6 +56,10 @@
       <width>80</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:&quot;#8e7c93&quot;;
+color:&quot;white&quot;</string>
     </property>
     <property name="text">
      <string>START</string>
@@ -66,6 +77,10 @@
       <height>24</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:&quot;#8e7c93&quot;;
+color:&quot;white&quot;</string>
+    </property>
     <property name="text">
      <string>STOP</string>
     </property>
@@ -82,6 +97,10 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:&quot;#8e7c93&quot;;
+color:&quot;white&quot;</string>
+    </property>
     <property name="text">
      <string>Señal Actual</string>
     </property>
@@ -90,10 +109,13 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>60</y>
+      <y>100</y>
       <width>761</width>
-      <height>351</height>
+      <height>211</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:&quot;#4E6671&quot;</string>
     </property>
    </widget>
   </widget>
@@ -106,9 +128,15 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color:&quot;white&quot;</string>
+   </property>
    <widget class="QMenu" name="menuPorts">
     <property name="enabled">
      <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:&quot;white&quot;</string>
     </property>
     <property name="title">
      <string>Ports</string>

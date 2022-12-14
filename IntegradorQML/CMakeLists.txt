@@ -19,6 +19,7 @@ set(PROJECT_SOURCES
         qml.qrc
         manejador.cpp manejador.h
         manejadorinterface.h manejadorinterface.cpp
+        canvas.cpp canvas.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

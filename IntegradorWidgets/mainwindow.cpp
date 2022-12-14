@@ -23,7 +23,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&manager, SIGNAL(activablesSTARTySTOP()), this, SLOT(activeSTARTandSTOP()));
     connect(&manager, SIGNAL(currentSignalview()), this, SLOT(currentSignalInStatusBar()));
     connect(&manager, SIGNAL(signalDataEmited(float)), this, SLOT(paintDataReceived(float)));
-
 }
 
 MainWindow::~MainWindow()

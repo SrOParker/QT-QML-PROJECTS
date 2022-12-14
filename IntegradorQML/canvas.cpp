@@ -2,7 +2,7 @@
 
 Canvas::Canvas(QWidget *parent) : QOpenGLWidget(parent)
 {
-    background = QColor("#4e6671");
+    background = QColor("#06AD90");
 }
 
 void Canvas::passDataAndPaint(float valueX, float valueY)
@@ -58,9 +58,7 @@ void Canvas::paintGL()
         glBegin(GL_LINES);
         for(int i =0; i < signal.size()-1;i++){
             qDebug()<< signal[i];
-            glColor3f(78,102,113);
             glVertex2f(i,signal[i]);
-            glColor3f(78,102,113);
             glVertex2f(i+1,signal[i+1]);
         }
         //glColor3f(1,1,1);

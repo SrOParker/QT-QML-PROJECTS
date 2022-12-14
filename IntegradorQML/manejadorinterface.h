@@ -23,15 +23,13 @@ public:
     Q_INVOKABLE void writeText(QString text);
     Q_INVOKABLE void setReadVariable(int val);
 private:
-
     Manejador manager;
 public slots:
     Q_INVOKABLE void readData();
-
+private slots:
+    void intermedioSignal(float dato);
 signals:
-    Q_INVOKABLE void activablesSTARTySTOP();
-    Q_INVOKABLE void currentSignalview();
-    Q_INVOKABLE void signalDataEmited(float dato);
+    void signalDataEmited(float dato);
 
 
 };

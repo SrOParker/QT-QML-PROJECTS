@@ -3,7 +3,7 @@
 ManejadorInterface::ManejadorInterface(QObject *parent)
     : QObject{parent}
 {
-
+    connect(&manager, SIGNAL(signalDataEmited(float)), this, SLOT(intermedioSignal(float)));
 }
 
 QSerialPort &ManejadorInterface::getPort()
@@ -45,6 +45,11 @@ void ManejadorInterface::initPort(QString name)
 void ManejadorInterface::readData()
 {
     manager.readData();
+}
+
+void ManejadorInterface::intermedioSignal(float dato)
+{
+    emit signalDataEmited(dato);
 }
 
 QVector<QString> ManejadorInterface::getSignalsString(){
