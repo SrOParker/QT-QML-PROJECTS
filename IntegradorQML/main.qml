@@ -8,6 +8,10 @@ Window {
     id: window
     width: 640
     height: 480
+    maximumHeight: 480
+    minimumHeight: 480
+    maximumWidth: 640
+    minimumWidth: 640
     visible: true
     title: qsTr("Integrador QML")
     color: "#424C44"
@@ -131,8 +135,11 @@ Window {
         width: 110
         height:40
         font.pixelSize: 20
+        color: window.colorBotones
         text:""
         anchors.bottom: signalCurrent.top
+        anchors.left: parent.left
+        anchors.leftMargin: 20
     }
     Button{
         id: signalCurrent
@@ -164,7 +171,7 @@ Window {
     }
     Timer{
         id:timer
-        interval: 500
+        interval: 5000
         running: false
         repeat: false
         onTriggered: {
